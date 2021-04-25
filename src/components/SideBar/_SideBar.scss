@@ -1,0 +1,61 @@
+.sidebar {
+  background-color: $color-grey-dark-1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 25rem;
+
+  &__items {
+    list-style: none;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  &__icon {
+    color: white;
+    margin-right: 2rem;
+    z-index: 10;
+  }
+  &__item {
+    display: flex;
+    position: relative;
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 2rem;
+
+    & > a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.6rem;
+      z-index: 10;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 3px;
+      background-color: $color-primary;
+      transform: scaleY(0);
+      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s;
+    }
+    &:hover::before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+    &__item:active::before {
+      background-color: $color-primary-light;
+    }
+  }
+}
+.copywrite {
+  padding: 2rem 3rem;
+  font-size: 1.3rem;
+  color: $color-grey-light-3;
+  text-align: center;
+}
